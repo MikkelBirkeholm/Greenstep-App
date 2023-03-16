@@ -4,12 +4,17 @@ import Image from "next/image";
 import earth from "../public/earth-green.svg";
 import recycle from "../public/recycle.svg";
 import styles from "../styles/aboutpage/about.module.css";
+import Logo from "@/components/Logo/Logo";
 
 export default function About() {
   return (
     <>
       <Layout title="About">
+        
+     
         <div className={styles.aboutcontainer}>
+        <Logo>
+        </Logo>
           <h1 className={styles.heading}>What is sustainability?</h1>
 
           <h2 className={styles.subheading}>
@@ -24,7 +29,7 @@ export default function About() {
             width={115}
             height={48}
           />
-
+          
           <h3 className={styles.middleheading}>
             Sustainability and the planet
           </h3>
