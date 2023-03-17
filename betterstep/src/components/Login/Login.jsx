@@ -10,18 +10,16 @@ export default function LoginView() {
   return (
     <>
       <div className={styles.formWrapper}>
-        <div className={styles.buttonBox}>
-
-          {/* Had to comment out the login/signup because we didn't have enough time  */}
-          {/* {mode === 'login' && (
+        {/* Had to comment out the login/signup because we didn't have enough time  */}
+        {/* {mode === 'login' && (
             <Button className={styles.createbtn}onClick={() => setMode('signup')}>Create Account</Button>
           )}
           {mode === 'signup' && (
             <Button onClick={() => setMode('login')}>
               Already have an account? Login instead
             </Button> */}
-          {/* )} */}
-        </div>
+        {/* )} */}
+
         {mode === 'signup' ? <SignUpForm /> : <LoginForm />}
       </div>
     </>
@@ -29,18 +27,22 @@ export default function LoginView() {
 }
 
 function LoginForm() {
+  function handleClick(e) {
+    e.preventDefault()
+  }
+
   return (
     <div className={styles.form}>
       <h2 className={styles.h2}>Login</h2>
-      <form className={styles.inputform}> 
+      <form className={styles.inputform}>
         <input className={styles.input} type="text" name="username" />
         <input className={styles.input} type="text" name="password" />
         {/* <Button className={styles.loginbtn} type="submit">Login</Button> */}
-      </form>
 
-      <Button>
-        <Link href="/onboarding">Shortcut</Link>
-      </Button>
+        <Button onClick={handleClick}>
+          <Link href="/onboarding">Shortcut</Link>
+        </Button>
+      </form>
     </div>
   )
 }

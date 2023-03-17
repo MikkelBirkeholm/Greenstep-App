@@ -1,21 +1,25 @@
 import React from 'react'
 import styles from './IsLocationActive.module.css'
+import { MobileView, isMobile } from 'react-device-detect'
 
 export default function IsLocationActive() {
   const [isLocationActive, setIsLocationActive] = React.useState(true)
 
   React.useEffect(() => {
-    navigator.permissions
-      .query({ name: 'geolocation' })
-      .then(function (result) {
-        if (result.state === 'granted') {
-          setIsLocationActive(true)
-        } else if (result.state === 'prompt') {
-          setIsLocationActive(false)
-        } else if (result.state === 'denied') {
-          setIsLocationActive(false)
-        }
-      })
+    if (!isMobile) {
+      console.log(isMobile)
+      navigator.permissions
+        .query({ name: 'geolocation' })
+        .then(function (result) {
+          if (result.state === 'granted') {
+            setIsLocationActive(true)
+          } else if (result.state === 'prompt') {
+            setIsLocationActive(false)
+          } else if (result.state === 'denied') {
+            setIsLocationActive(false)
+          }
+        })
+    }
   }, [])
 
   function ActivatePopUp() {

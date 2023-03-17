@@ -2,7 +2,7 @@ import styles from './Button.module.css'
 const Button = ({ children, onClick, type, className }) => {
   return (
     <button
-      className={[styles.button, className].join(' ')}
+      className={[styles.button, className, type].join(' ')}
       onClick={onClick}
       type={type}
     >
