@@ -15,6 +15,10 @@ export default function MarkerTooltip({ marker, callback }) {
     setMode(false)
   }
 
+  function handleBack() {
+    setMode(!mode)
+  }
+
   function handleDecline() {
     callback(null)
   }
@@ -50,7 +54,12 @@ export default function MarkerTooltip({ marker, callback }) {
               <span> Take picture at location</span>
             </div>
             <CameraCapture />
-            <Button onClick={handleDecline}>Complete</Button>
+            <div className="buttonbox">
+              <Button onClick={handleDecline}>Complete</Button>
+              <Button onClick={handleBack} type="back">
+                Back
+              </Button>
+            </div>
           </>
         )}
       </div>
