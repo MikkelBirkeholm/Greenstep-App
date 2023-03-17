@@ -22,10 +22,14 @@ export default function Navbar({ locations }) {
     setListView(!listView)
   }
 
+  const callback = (payload) => {
+    setSelectedMarker(payload)
+  }
+
   return (
     <>
       <div className={styles.navbarWrapper}>
-        {listView && <ListView locations={locations} />}
+        {listView && <ListView locations={locations} callback={callback} />}
         <nav className={styles.navigation}>
           {asPath !== '/mode' && (
             <Link href="/mode">
