@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './IsLocationActive.module.css'
 import useCheckMobileScreen from '@/utils/useCheckMobileScreen.js'
 
+// check if geolocation is active and show popup if not
 export default function IsLocationActive() {
   const [isLocationActive, setIsLocationActive] = React.useState(true)
 
